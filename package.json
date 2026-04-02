@@ -64,6 +64,7 @@
   "build": {
     "appId": "com.mclauncher.app",
     "productName": "MCLauncher",
+    "publish": null,
     "directories": {
       "output": "dist-electron"
     },
