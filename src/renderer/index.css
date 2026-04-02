@@ -1,0 +1,123 @@
+/* src/renderer/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html, body, #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #0a0a0e;
+    color: #e8e8f0;
+    font-family: 'DM Sans', sans-serif;
+    user-select: none;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a38;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a3a50;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-accent hover:bg-accent-hover text-white font-display font-semibold
+           rounded-lg transition-all duration-200 flex items-center gap-2
+           hover:shadow-glow active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-bg-elevated hover:bg-bg-overlay text-text border border-bg-border
+           font-display font-medium rounded-lg transition-all duration-200 flex items-center gap-2
+           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-danger {
+    @apply px-4 py-2 bg-danger/20 hover:bg-danger/30 text-danger border border-danger/30
+           font-display font-medium rounded-lg transition-all duration-200 flex items-center gap-2
+           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .card {
+    @apply bg-bg-surface border border-bg-border rounded-xl p-4 shadow-panel;
+  }
+
+  .input {
+    @apply bg-bg-elevated border border-bg-border rounded-lg px-3 py-2 text-text
+           placeholder:text-text-muted focus:outline-none focus:border-accent
+           transition-colors duration-200 w-full font-body;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-display font-semibold;
+  }
+
+  .badge-green {
+    @apply badge bg-accent/20 text-accent;
+  }
+
+  .badge-yellow {
+    @apply badge bg-warn/20 text-warn;
+  }
+
+  .badge-blue {
+    @apply badge bg-info/20 text-info;
+  }
+
+  .badge-red {
+    @apply badge bg-danger/20 text-danger;
+  }
+
+  .badge-gray {
+    @apply badge bg-bg-overlay text-text-secondary;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary font-body
+           transition-all duration-200 hover:bg-bg-elevated hover:text-text cursor-pointer;
+  }
+
+  .sidebar-link.active {
+    @apply bg-accent/10 text-accent border-l-2 border-accent;
+  }
+
+  /* Neon glow text */
+  .glow-text {
+    text-shadow: 0 0 20px rgba(34,197,94,0.5);
+  }
+}
+
+/* Drag region for custom titlebar */
+.drag-region {
+  -webkit-app-region: drag;
+}
+
+.no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* Smooth transitions */
+.fade-enter { opacity: 0; transform: translateY(8px); }
+.fade-enter-active { opacity: 1; transform: translateY(0); transition: all 0.2s ease; }
+.fade-exit { opacity: 1; transform: translateY(0); }
+.fade-exit-active { opacity: 0; transform: translateY(-8px); transition: all 0.2s ease; }
