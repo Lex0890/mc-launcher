@@ -238,11 +238,11 @@ export class Launcher {
             jvm: [
               ...((versionJson.arguments?.jvm as unknown[]) || []),
               ...((parentJson.arguments?.jvm as unknown[]) || []),
-            ] as typeof versionJson.arguments.jvm,
+            ],
             game: [
               ...((versionJson.arguments?.game as unknown[]) || []),
               ...((parentJson.arguments?.game as unknown[]) || []),
-            ] as typeof versionJson.arguments.game,
+            ],
           },
           assetIndex: versionJson.assetIndex || parentJson.assetIndex,
           minecraftArguments: versionJson.minecraftArguments || parentJson.minecraftArguments,
